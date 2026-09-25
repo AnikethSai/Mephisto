@@ -1,7 +1,7 @@
 const path = require('path');
 const Database = require('better-sqlite3');
 
-const dbPath = path.join(process.cwd(), 'data', 'soulcoins.db');
+const dbPath = process.env.DATABASE_PATH || path.join(process.cwd(), 'data', 'soulcoins.db');
 const db = new Database(dbPath);
 db.pragma('journal_mode = WAL');
 db.pragma('foreign_keys = ON');
